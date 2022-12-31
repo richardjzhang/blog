@@ -15,11 +15,11 @@ export default function Post({ post }: Props) {
         <title>{post.title}</title>
         <meta name="description" content={post.spoiler} />
       </Head>
-      <h1 className="text-4xl text-indigo-400 font-bold font-title">
+      <h2 className="text-4xl text-indigo-400 font-bold font-title">
         {post.title}
-      </h1>
+      </h2>
       <div className="text-gray-200 font-body">
-        <p className="mt-3 text-sm ">
+        <p className="mt-3 text-sm">
           {dayjs(post.createdAt).format("MMMM D, YYYY")}
         </p>
         <Markdown>{post.contentMarkdown}</Markdown>

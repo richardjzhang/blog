@@ -20,19 +20,25 @@ export async function getStaticPaths() {
 
   return {
     paths,
-    fallback: false,
+    fallback: "blocking",
   };
 }
 
 export async function getStaticProps({ params }: Params) {
   const { id } = params;
-  const post = await ContentService.instance.getEntryById(id);
 
-  return {
-    props: {
-      post,
-    },
-  };
+  try {
+    const post = await ContentService.instance.getEntryById(id);
+    return {
+      props: {
+        post,
+      },
+    };
+  } catch (err) {
+    return {
+      notFound: true,
+    };
+  }
 }
 
 export default function PostPage({ post }: Props) {

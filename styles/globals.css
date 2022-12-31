@@ -46,7 +46,7 @@ a {
   margin-top: 0;
 }
 
-.markdown h2 {
+.markdown h3 {
   color: rgb(165 180 252);
 }
 
@@ -59,9 +59,17 @@ a {
   color: rgb(229 231 235);
 }
 
+.markdown p a {
+  color: rgb(229 231 235);
+}
+
+.markdown blockquote p,
+.markdown blockquote em {
+  font-style: normal;
+}
+
 .markdown blockquote {
   border: none;
-  font-style: normal;
   font-size: 20px;
 }
 

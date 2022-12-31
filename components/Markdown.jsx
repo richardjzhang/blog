@@ -23,6 +23,13 @@ export default function Markdown({ children }) {
             }
             return <p>{children}</p>;
           },
+          hr: () => (
+            <div className="w-full flex space-x-4 justify-center text-4xl text-gray-400">
+              <span>.</span>
+              <span>.</span>
+              <span>.</span>
+            </div>
+          ),
         }}
       >
         {children}
