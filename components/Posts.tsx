@@ -13,11 +13,11 @@ export default function Posts({ posts }: Props) {
         <Link
           className="block mt-10 fit-content first:mt-0"
           key={post.id}
-          href={`/post/${post.id}`}
+          href={`/posts/${post.id}`}
         >
-          <h1 className="text-2xl text-yellow-300 font-bold font-title">
+          <h2 className="text-2xl text-indigo-400 font-bold font-body">
             {post.title}
-          </h1>
+          </h2>
           <div className="font-body">
             <p className="mt-2 text-sm text-gray-300">
               {dayjs(post.createdAt).format("MMMM D, YYYY")}

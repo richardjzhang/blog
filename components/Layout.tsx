@@ -1,5 +1,5 @@
 import Header from "components/Header";
-import { montserrat, permanentMarker, varelaRound } from "utils/fonts";
+import Footer from "components/Footer";
 
 interface Props {
   children: React.ReactNode;
@@ -7,13 +7,12 @@ interface Props {
 
 export default function Layout({ children }: Props) {
   return (
-    <main
-      className={`${montserrat.variable} ${permanentMarker.variable} ${varelaRound.variable} px-5 py-10 h-screen overflow-auto bg-zinc-900`}
-    >
-      <div className="mx-auto max-w-2xl">
+    <div className="px-5 pt-10 h-screen overflow-auto bg-zinc-900 flex flex-col">
+      <div className="mx-auto mb-20 max-w-4xl flex-1 w-full">
         <Header />
-        <div className="mt-20">{children}</div>
+        <main className="mt-14">{children}</main>
       </div>
-    </main>
+      <Footer />
+    </div>
   );
 }

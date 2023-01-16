@@ -15,7 +15,8 @@ export default async function handler(
     // e.g. for "/blog/[slug]" this should be "/blog/post-1"]
     await Promise.all([
       res.revalidate("/"),
-      res.revalidate(`/post/${req.body.entryId}`),
+      res.revalidate("/posts"),
+      res.revalidate(`/posts/${req.body.entryId}`),
     ]);
     return res.json({ revalidated: true });
   } catch (err) {

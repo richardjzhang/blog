@@ -10,9 +10,8 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        header: ["var(--font-permanent-marker)", ...fontFamily.serif],
-        title: ["var(--font-montserrat)", ...fontFamily.serif],
-        body: ["var(--font-varela-round)", ...fontFamily.serif],
+        title: ["var(--font-permanent-marker)", ...fontFamily.sans],
+        body: ["var(--font-josefin-sans)", ...fontFamily.sans],
       },
     },
   },
