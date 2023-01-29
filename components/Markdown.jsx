@@ -17,7 +17,7 @@ export default function Markdown({ children }) {
               const src = `https:${image.properties.src}`;
               return (
                 <p className="h-60 relative sm:h-96">
-                  <Image className="object-contain" src={src} alt={alt} fill />
+                  <Image className="object-cover" src={src} alt={alt} fill />
                 </p>
               );
             }

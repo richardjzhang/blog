@@ -27,7 +27,7 @@ export default function Home(props: Props) {
         <title>Richard Zhang</title>
         <meta
           name="description"
-          content="A site for all my thoughts, by Richard Zhang"
+          content="A personal site for all my thoughts, by Richard Zhang"
         />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
@@ -72,15 +72,6 @@ export default function Home(props: Props) {
           <h2 className="text-3xl font-title text-yellow-300">Work</h2>
           <Work />
         </div>
-        {/* <div className="pt-10">
-          <h2 className="text-3xl font-title text-yellow-300">
-            Stay in the loop
-          </h2>
-          <p className="mt-5 font-body text-lg text-gray-200">
-            Get notified when I publish something new, and unsubscribe at any
-            time.
-          </p>
-        </div> */}
       </div>
     </>
   );

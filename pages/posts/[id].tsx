@@ -1,3 +1,4 @@
+import Head from "next/head";
 import Post from "components/Post";
 import { IBlog } from "types/contentful-types";
 import ContentService from "utils/contentful-service";
@@ -43,12 +44,24 @@ export async function getStaticProps({ params }: Params) {
 
 export default function PostPage({ post }: Props) {
   return (
-    <Post
-      post={{
-        ...post.fields,
-        id: post.sys.id,
-        createdAt: post.sys.createdAt,
-      }}
-    />
+    <>
+      <Head>
+        <title>{post.fields.title}</title>
+        <meta
+          property="og:image"
+          content={`https://www.richardjzhang.com/api/og?title=${post.fields.title
+            .split(" ")
+            .join("+")}`}
+        />
+        <meta name="description" content={post.fields.spoiler} />
+      </Head>
+      <Post
+        post={{
+          ...post.fields,
+          id: post.sys.id,
+          createdAt: post.sys.createdAt,
+        }}
+      />
+    </>
   );
 }
