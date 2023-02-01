@@ -1,3 +1,4 @@
+import dayjs from "dayjs";
 import Head from "next/head";
 import Post from "components/Post";
 import { IBlog } from "types/contentful-types";
@@ -43,15 +44,18 @@ export async function getStaticProps({ params }: Params) {
 }
 
 export default function PostPage({ post }: Props) {
+  const createdAt = dayjs(post.sys.createdAt).format("MMMM D, YYYY");
   return (
     <>
       <Head>
         <title>{post.fields.title}</title>
         <meta
           property="og:image"
-          content={`https://www.richardjzhang.com/api/og?title=${post.fields.title
-            .split(" ")
-            .join("+")}`}
+          content={`https://www.richardjzhang.com/api/og?title=${encodeURIComponent(
+            post.fields.title
+          )}&publishDate=${encodeURIComponent(
+            createdAt
+          )}&spoiler=${encodeURIComponent(post.fields.spoiler)}`}
         />
         <meta name="description" content={post.fields.spoiler} />
       </Head>
@@ -59,7 +63,7 @@ export default function PostPage({ post }: Props) {
         post={{
           ...post.fields,
           id: post.sys.id,
-          createdAt: post.sys.createdAt,
+          createdAt,
         }}
       />
     </>

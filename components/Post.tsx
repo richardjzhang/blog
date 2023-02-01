@@ -1,4 +1,3 @@
-import dayjs from "dayjs";
 import Markdown from "components/Markdown";
 import { Post as PostType } from "types/contentful-types";
 import React from "react";
@@ -14,9 +13,7 @@ export default function Post({ post }: Props) {
         {post.title}
       </h2>
       <div className="text-gray-200 font-body">
-        <p className="mt-3 text-sm">
-          {dayjs(post.createdAt).format("MMMM D, YYYY")}
-        </p>
+        <p className="mt-3 text-sm">{post.createdAt}</p>
         <Markdown>{post.contentMarkdown}</Markdown>
       </div>
     </>
