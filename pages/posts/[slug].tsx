@@ -6,7 +6,7 @@ import ContentService from "utils/contentful-service";
 
 interface Params {
   params: {
-    id: string;
+    slug: string;
   };
 }
 
@@ -16,8 +16,8 @@ interface Props {
 
 export async function getStaticPaths() {
   const posts = await ContentService.instance.getEntriesByType("blog");
-  const paths = posts.map((post) => ({
-    params: { id: post.sys.id },
+  const paths = posts.map((post: IBlog) => ({
+    params: { slug: post.fields.slug },
   }));
 
   return {
@@ -27,13 +27,12 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }: Params) {
-  const { id } = params;
-
+  const { slug } = params;
   try {
-    const post = await ContentService.instance.getEntryById(id);
+    const posts = await ContentService.instance.getBlogEntryBySlug(slug);
     return {
       props: {
-        post,
+        post: posts.items[0],
       },
     };
   } catch (err) {
@@ -44,7 +43,8 @@ export async function getStaticProps({ params }: Params) {
 }
 
 export default function PostPage({ post }: Props) {
-  const createdAt = dayjs(post.sys.createdAt).format("MMMM D, YYYY");
+  const createdAt = post.fields.publishDate || post.sys.createdAt;
+  const formattedCreatedAt = dayjs(createdAt).format("MMMM D, YYYY");
   return (
     <>
       <Head>
@@ -54,7 +54,7 @@ export default function PostPage({ post }: Props) {
           content={`https://www.richardjzhang.com/api/og?title=${encodeURIComponent(
             post.fields.title
           )}&publishDate=${encodeURIComponent(
-            createdAt
+            formattedCreatedAt
           )}&spoiler=${encodeURIComponent(post.fields.spoiler)}`}
         />
         <meta name="description" content={post.fields.spoiler} />
@@ -63,7 +63,7 @@ export default function PostPage({ post }: Props) {
         post={{
           ...post.fields,
           id: post.sys.id,
-          createdAt,
+          createdAt: formattedCreatedAt,
         }}
       />
     </>

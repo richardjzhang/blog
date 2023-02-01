@@ -14,13 +14,11 @@ export default async function (req: NextRequest) {
   const fontData = await font;
   try {
     const { searchParams } = new URL(req.url);
-    const hasTitle = searchParams.has("title");
-    const title = hasTitle ? searchParams.get("title") : "My default title";
-    const hasSpoiler = searchParams.has("spoiler");
-    const hasDate = searchParams.has("publishDate");
-    const publishDate = hasDate
-      ? searchParams.get("publishDate")
-      : new Date().toLocaleDateString();
+    const title = searchParams.get("title") || "My default title";
+    const description =
+      searchParams.has("description") || "My default description";
+    const publishDate =
+      searchParams.get("publishDate") || new Date().toLocaleDateString();
 
     return new ImageResponse(
       (
@@ -33,29 +31,20 @@ export default async function (req: NextRequest) {
           }}
         >
           <div tw="rounded p-10 bg-zinc-900 h-full w-full flex flex-col">
-            <div tw="h-full flex flex-col">
-              <div tw="mt-10 mb-3 flex items-center">
-                <img
-                  width="84"
-                  height="84"
-                  src={`${process.env.WEBSITE_URL}/profile-pic.png`}
-                  tw="border-2 border-white rounded-full"
-                />
-                {/* <div tw="ml-4 text-4xl text-gray-200">Richard Zhang</div> */}
-              </div>
-              <div tw="mt-16 text-6xl leading-normal text-gray-200">
-                {title}
-              </div>
-              {hasSpoiler && (
-                <div tw="mt-5 text-3xl text-gray-300">
-                  {searchParams.get("spoiler")}
-                </div>
-              )}
-              <div tw="mt-5 text-xl flex items-center text-gray-300">
-                <div>richardjzhang.com</div>
-                <div tw="-mt-2 ml-3">.</div>
-                <div tw="ml-3">{publishDate}</div>
-              </div>
+            <div tw="mt-10 mb-3 flex items-center">
+              <img
+                width="84"
+                height="84"
+                src={`${process.env.WEBSITE_URL}/profile-pic.png`}
+                tw="border-2 border-white rounded-full"
+              />
+            </div>
+            <div tw="mt-16 text-6xl leading-normal text-gray-200">{title}</div>
+            <div tw="mt-5 text-3xl text-gray-300">{description}</div>
+            <div tw="mt-5 text-xl flex items-center text-gray-300">
+              <div>Your website</div>
+              <div tw="-mt-2 ml-3">.</div>
+              <div tw="ml-3">{publishDate}</div>
             </div>
           </div>
         </div>
@@ -65,7 +54,7 @@ export default async function (req: NextRequest) {
         height: 630,
         fonts: [
           {
-            name: "Josefin-Sans",
+            name: "JosefinSans-Regular",
             data: fontData,
             style: "normal",
           },

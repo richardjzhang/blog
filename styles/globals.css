@@ -72,6 +72,14 @@ a {
   color: rgb(229 231 235);
 }
 
+.markdown p code {
+  color: rgb(165 180 252);
+}
+
+.markdown p code::before, p code::after {
+  display: none;
+}
+
 .markdown blockquote p,
 .markdown blockquote em {
   font-style: normal;

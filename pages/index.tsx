@@ -30,7 +30,6 @@ export default function Home(props: Props) {
           content="A personal site for all my thoughts, by Richard Zhang"
         />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className="grid grid-col-1 gap-y-10 divide-y-2 divide-slate-700">
         <div>
@@ -61,11 +60,13 @@ export default function Home(props: Props) {
         <div className="pt-10">
           <h2 className="text-3xl font-title text-yellow-300">Recent Posts</h2>
           <Posts
-            posts={posts.map((entry) => ({
-              ...entry.fields,
-              id: entry.sys.id,
-              createdAt: entry.sys.createdAt,
-            }))}
+            posts={posts
+              .map((entry) => ({
+                ...entry.fields,
+                id: entry.sys.id,
+                createdAt: entry.sys.createdAt,
+              }))
+              .slice(0, 4)}
           />
         </div>
         <div className="pt-10">

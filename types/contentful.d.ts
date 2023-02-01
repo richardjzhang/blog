@@ -14,6 +14,12 @@ export interface IBlogFields {
 
   /** contentMarkdown */
   contentMarkdown: string;
+
+  /** slug */
+  slug: string;
+
+  /** publishDate */
+  publishDate?: string | undefined;
 }
 
 export interface IBlog extends Entry<IBlogFields> {

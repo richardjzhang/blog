@@ -4,7 +4,7 @@ import ReactMarkdown from "react-markdown";
 // Todo: Convert to Typescript
 export default function Markdown({ children }) {
   return (
-    <div className="prose max-w-none">
+    <div className="prose max-w-none mt-10">
       <ReactMarkdown
         className="markdown"
         components={{
@@ -17,7 +17,7 @@ export default function Markdown({ children }) {
               const src = `https:${image.properties.src}`;
               return (
                 <p className="h-60 relative sm:h-96">
-                  <Image className="object-cover" src={src} alt={alt} fill />
+                  <Image className="object-contain" src={src} alt={alt} fill />
                 </p>
               );
             }

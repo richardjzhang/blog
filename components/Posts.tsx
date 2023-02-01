@@ -13,7 +13,7 @@ export default function Posts({ posts }: Props) {
         <Link
           className="block mt-10 fit-content first:mt-0"
           key={post.id}
-          href={`/posts/${post.id}`}
+          href={`/posts/${post.slug}`}
         >
           <h2 className="text-2xl text-indigo-400 font-bold font-body">
             {post.title}

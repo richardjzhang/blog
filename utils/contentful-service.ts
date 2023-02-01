@@ -28,7 +28,7 @@ export default class ContentService {
     accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
   });
 
-  async getEntriesByType<T>(type: string) {
+  async getEntriesByType<T>(type: string): Promise<any>  {
     return (
       await this.client.getEntries<T>({
         content_type: type,
@@ -37,7 +37,14 @@ export default class ContentService {
     ).items;
   }
 
-  async getEntryById<T>(id: string) {
+  async getBlogEntryById<T>(id: string) {
     return await this.client.getEntry<T>(id);
+  }
+
+  async getBlogEntryBySlug<T>(slug: string) {
+    return await this.client.getEntries<T>({
+      content_type: "blog",
+      "fields.slug": slug,
+    });
   }
 }
