@@ -68,15 +68,21 @@ a {
   font-size: 18px;
 }
 
-.markdown p a {
+.markdown p a,
+.markdown li a {
   color: rgb(229 231 235);
 }
 
 .markdown p code {
-  color: rgb(165 180 252);
+  background-color: rgb(71 85 105);
+  border-radius: 4px;
+  color: rgb(229 231 235);
+  padding: 4px 8px;
+  font-weight: 400;
+  word-break: break-all;
 }
 
-.markdown p code::before, p code::after {
+.markdown p code::before, p code::after, h3 code::before, h3 code::after {
   display: none;
 }
 
@@ -99,3 +105,30 @@ a {
 .markdown blockquote p::before {
   content: ""
 }
+
+.markdown p img {
+  margin-top: 12px;
+}
+
+.markdown pre {
+  background: rgb(40, 42, 54);
+}
+
+@media (min-width: 768px) {
+  .markdown h3 {
+    font-size: 28px;
+  }
+
+  .markdown p,
+  .markdown li {
+    font-size: 20px;
+  }
+
+  .markdown blockquote p,
+  .markdown blockquote em {
+    font-style: normal;
+    font-size: 22px;
+  }
+
+}
+  

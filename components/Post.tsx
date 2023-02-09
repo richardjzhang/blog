@@ -13,7 +13,7 @@ export default function Post({ post }: Props) {
         {post.title}
       </h2>
       <div className="text-gray-200 font-body">
-        <p className="mt-5 text-xl">{post.spoiler}</p>
+        <p className="mt-5 text-xl sm:text-2xl">{post.spoiler}</p>
         <p className="mt-2 text-sm text-gray-400">{post.createdAt}</p>
         <Markdown>{post.contentMarkdown}</Markdown>
       </div>

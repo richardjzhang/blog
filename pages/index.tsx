@@ -64,7 +64,7 @@ export default function Home(props: Props) {
               .map((entry) => ({
                 ...entry.fields,
                 id: entry.sys.id,
-                createdAt: entry.sys.createdAt,
+                createdAt: entry.fields.publishDate || entry.sys.createdAt,
               }))
               .slice(0, 4)}
           />

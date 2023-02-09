@@ -49,13 +49,15 @@ export default function PostPage({ post }: Props) {
     <>
       <Head>
         <title>{post.fields.title}</title>
+        <meta property="og:title" content={post.fields.title} />
+        <meta property="og:description" content={post.fields.spoiler} />
         <meta
           property="og:image"
           content={`https://www.richardjzhang.com/api/og?title=${encodeURIComponent(
             post.fields.title
           )}&publishDate=${encodeURIComponent(
             formattedCreatedAt
-          )}&spoiler=${encodeURIComponent(post.fields.spoiler)}`}
+          )}&description=${encodeURIComponent(post.fields.spoiler)}`}
         />
         <meta name="description" content={post.fields.spoiler} />
       </Head>

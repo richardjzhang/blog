@@ -1,5 +1,8 @@
 import Image from "next/image";
 import ReactMarkdown from "react-markdown";
+import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
+import { dracula } from "react-syntax-highlighter/dist/cjs/styles/prism";
+import rangeParser from "parse-numeric-range";
 
 // Todo: Convert to Typescript
 export default function Markdown({ children }) {
@@ -30,6 +33,44 @@ export default function Markdown({ children }) {
               <span>.</span>
             </div>
           ),
+          code({ node, inline, className, children }) {
+            const match = /language-(\w+)/.exec(className || "");
+            const hasMeta = node?.data?.meta;
+
+            return inline || !match ? (
+              <code>{children}</code>
+            ) : (
+              <SyntaxHighlighter
+                style={dracula}
+                language={match[1]}
+                PreTag="div"
+                showLineNumbers
+                wrapLines
+                lineProps={(lineNumber) => {
+                  const style = {
+                    display: "block",
+                    minWidth: "fit-content",
+                  };
+
+                  if (hasMeta) {
+                    const RE = /{([\d,-]+)}/;
+                    const metadata = node.data.meta.replace(/\s/g, "");
+                    const strlineNumbers = RE?.test(metadata)
+                      ? RE?.exec(metadata)[1]
+                      : "0";
+                    const highlightLines = rangeParser(strlineNumbers);
+                    if (highlightLines.includes(lineNumber)) {
+                      style.backgroundColor = "rgb(71 85 105)";
+                    }
+                  }
+
+                  return { style };
+                }}
+              >
+                {children}
+              </SyntaxHighlighter>
+            );
+          },
         }}
       >
         {children}

@@ -10,13 +10,13 @@ const font = fetch(
   new URL("../../assets/JosefinSans-Regular.ttf", import.meta.url)
 ).then((res) => res.arrayBuffer());
 
-export default async function (req: NextRequest) {
+export default async function handler(req: NextRequest) {
   const fontData = await font;
   try {
     const { searchParams } = new URL(req.url);
     const title = searchParams.get("title") || "My default title";
     const description =
-      searchParams.has("description") || "My default description";
+      searchParams.get("description") || "My default description";
     const publishDate =
       searchParams.get("publishDate") || new Date().toLocaleDateString();
 
@@ -39,10 +39,12 @@ export default async function (req: NextRequest) {
                 tw="border-2 border-white rounded-full"
               />
             </div>
-            <div tw="mt-16 text-6xl leading-normal text-gray-200">{title}</div>
-            <div tw="mt-5 text-3xl text-gray-300">{description}</div>
-            <div tw="mt-5 text-xl flex items-center text-gray-300">
-              <div>Your website</div>
+            <div tw="mt-16 flex text-6xl leading-normal text-gray-200">
+              {title}
+            </div>
+            <div tw="mt-5 flex text-3xl text-gray-300">{description}</div>
+            <div tw="mt-5 flex items-center text-xl text-gray-300">
+              <div>richardjzhang.com</div>
               <div tw="-mt-2 ml-3">.</div>
               <div tw="ml-3">{publishDate}</div>
             </div>
@@ -62,7 +64,7 @@ export default async function (req: NextRequest) {
       }
     );
   } catch (e: any) {
-    console.log(`${e.message}`);
+    console.log(e.message);
     return new Response(`Failed to generate the image`, {
       status: 500,
     });
