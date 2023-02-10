@@ -3,6 +3,7 @@ import ReactMarkdown from "react-markdown";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { dracula } from "react-syntax-highlighter/dist/cjs/styles/prism";
 import rangeParser from "parse-numeric-range";
+import Link from "next/link";
 
 // Todo: Convert to Typescript
 export default function Markdown({ children }) {
@@ -11,6 +12,11 @@ export default function Markdown({ children }) {
       <ReactMarkdown
         className="markdown"
         components={{
+          a: (props) => (
+            <Link href={props.href} target="_blank">
+              {props.children}
+            </Link>
+          ),
           p: (props) => {
             const { node, children } = props;
             if (node.children[0].tagName === "img") {
