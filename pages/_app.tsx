@@ -1,5 +1,6 @@
 import "styles/globals.css";
 import type { AppProps } from "next/app";
+import { Analytics } from "@vercel/analytics/react";
 import Layout from "components/Layout";
 import { Josefin_Sans, Permanent_Marker } from "@next/font/google";
 
@@ -17,10 +18,13 @@ const permanentMarker = Permanent_Marker({
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
-    <div className={`${josefinSans.variable} ${permanentMarker.variable}`}>
-      <Layout>
-        <Component {...pageProps} />
-      </Layout>
-    </div>
+    <>
+      <div className={`${josefinSans.variable} ${permanentMarker.variable}`}>
+        <Layout>
+          <Component {...pageProps} />
+        </Layout>
+      </div>
+      <Analytics />
+    </>
   );
 }
