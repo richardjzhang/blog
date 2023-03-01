@@ -5,6 +5,8 @@ import ContentService from "utils/contentful-service";
 import Posts from "components/Posts";
 import Work from "components/Work";
 import SocialIcon from "components/SocialIcon";
+import generateRssFeed from "utils/generate-rss-feed";
+import RssIcon from "components/RssIcon";
 
 interface Props {
   posts: Array<IBlog>;
@@ -12,6 +14,7 @@ interface Props {
 
 export async function getStaticProps() {
   const posts = await ContentService.instance.getEntriesByType<IBlog>("blog");
+  await generateRssFeed(posts);
   return {
     props: {
       posts,
@@ -58,7 +61,12 @@ export default function Home(props: Props) {
           </div>
         </div>
         <div className="pt-10">
-          <h2 className="text-3xl font-title text-yellow-300">Recent Posts</h2>
+          <div className="flex items-center justify-between">
+            <h2 className="text-3xl font-title text-yellow-300">
+              Recent Posts
+            </h2>
+            <RssIcon />
+          </div>
           <Posts
             posts={posts
               .map((entry) => ({

@@ -1,0 +1,42 @@
+{
+    "version": "https://jsonfeed.org/version/1",
+    "title": "Richard Zhang",
+    "home_page_url": "http://localhost:3000",
+    "feed_url": "http://localhost:3000/rss/feed.json",
+    "description": "A personal site for all my thoughts, by Richard Zhang",
+    "icon": "http://localhost:3000/profile-pic.png",
+    "author": {
+        "name": "Richard Zhang",
+        "url": "https://twitter.com/zirichii"
+    },
+    "items": [
+        {
+            "id": "2mHXKJVQaUVIm4qSPFK2AE",
+            "url": "http://localhost:3000/posts/og-image-generation-in-nextjs",
+            "title": "Open Graph Image Generation in Next.js",
+            "summary": "Is storing open graph images now a thing of the past?",
+            "date_modified": "2023-02-03T00:13:15.088Z"
+        },
+        {
+            "id": "197cGKAf5oY5uqEbrvWaBA",
+            "url": "http://localhost:3000/posts/three-things-that-made-me-a-better-programmer",
+            "title": "Three things that made me a better programmer",
+            "summary": "Code smarter, not harder 🙌",
+            "date_modified": "2020-02-21T13:00:00.000Z"
+        },
+        {
+            "id": "4XhGpnPIdXNLxUXsILz6K",
+            "url": "http://localhost:3000/posts/dont-be-pressured-to-learn-to-code",
+            "title": "Don’t be pressured to learn to code",
+            "summary": "It might not be your cup of ☕",
+            "date_modified": "2020-01-05T13:00:00.000Z"
+        },
+        {
+            "id": "2Zp7hOa8sQBtWImaTUxyM2",
+            "url": "http://localhost:3000/posts/im-25-now-what",
+            "title": "I'm 25. Now what?",
+            "summary": "Just a little dose of quarter life crisis",
+            "date_modified": "2019-07-27T12:46:30.278Z"
+        }
+    ]
+}

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0">
+    <channel>
+        <title>Richard Zhang</title>
+        <link>http://localhost:3000</link>
+        <description>A personal site for all my thoughts, by Richard Zhang</description>
+        <lastBuildDate>Wed, 01 Mar 2023 12:59:16 GMT</lastBuildDate>
+        <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
+        <generator>https://github.com/jpmonette/feed</generator>
+        <image>
+            <title>Richard Zhang</title>
+            <url>http://localhost:3000/profile-pic.png</url>
+            <link>http://localhost:3000</link>
+        </image>
+        <copyright>© 2023 Richard Zhang. All rights reserved.</copyright>
+        <item>
+            <title><![CDATA[Open Graph Image Generation in Next.js]]></title>
+            <link>http://localhost:3000/posts/og-image-generation-in-nextjs</link>
+            <guid>2mHXKJVQaUVIm4qSPFK2AE</guid>
+            <pubDate>Fri, 03 Feb 2023 00:13:15 GMT</pubDate>
+            <description><![CDATA[Is storing open graph images now a thing of the past?]]></description>
+        </item>
+        <item>
+            <title><![CDATA[Three things that made me a better programmer]]></title>
+            <link>http://localhost:3000/posts/three-things-that-made-me-a-better-programmer</link>
+            <guid>197cGKAf5oY5uqEbrvWaBA</guid>
+            <pubDate>Fri, 21 Feb 2020 13:00:00 GMT</pubDate>
+            <description><![CDATA[Code smarter, not harder 🙌]]></description>
+        </item>
+        <item>
+            <title><![CDATA[Don’t be pressured to learn to code]]></title>
+            <link>http://localhost:3000/posts/dont-be-pressured-to-learn-to-code</link>
+            <guid>4XhGpnPIdXNLxUXsILz6K</guid>
+            <pubDate>Sun, 05 Jan 2020 13:00:00 GMT</pubDate>
+            <description><![CDATA[It might not be your cup of ☕]]></description>
+        </item>
+        <item>
+            <title><![CDATA[I'm 25. Now what?]]></title>
+            <link>http://localhost:3000/posts/im-25-now-what</link>
+            <guid>2Zp7hOa8sQBtWImaTUxyM2</guid>
+            <pubDate>Sat, 27 Jul 2019 12:46:30 GMT</pubDate>
+            <description><![CDATA[Just a little dose of quarter life crisis]]></description>
+        </item>
+    </channel>
+</rss>
