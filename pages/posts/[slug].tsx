@@ -11,6 +11,7 @@ interface Params {
 }
 
 interface Props {
+  slug: string;
   post: IBlog;
 }
 
@@ -32,6 +33,7 @@ export async function getStaticProps({ params }: Params) {
     const posts = await ContentService.instance.getBlogEntryBySlug(slug);
     return {
       props: {
+        slug: slug,
         post: posts.items[0],
       },
     };
@@ -42,24 +44,32 @@ export async function getStaticProps({ params }: Params) {
   }
 }
 
-export default function PostPage({ post }: Props) {
+export default function PostPage({ slug, post }: Props) {
   const createdAt = post.fields.publishDate || post.sys.createdAt;
   const formattedCreatedAt = dayjs(createdAt).format("MMMM D, YYYY");
+  const ogImage = `https://www.richardjzhang.com/api/og?title=${encodeURIComponent(
+    post.fields.title
+  )}&publishDate=${encodeURIComponent(
+    formattedCreatedAt
+  )}&description=${encodeURIComponent(post.fields.spoiler)}`;
   return (
     <>
       <Head>
         <title>{post.fields.title}</title>
+        {/* Generic og tags */}
         <meta property="og:title" content={post.fields.title} />
         <meta property="og:description" content={post.fields.spoiler} />
-        <meta
-          property="og:image"
-          content={`https://www.richardjzhang.com/api/og?title=${encodeURIComponent(
-            post.fields.title
-          )}&publishDate=${encodeURIComponent(
-            formattedCreatedAt
-          )}&description=${encodeURIComponent(post.fields.spoiler)}`}
-        />
+        <meta property="og:image" content={ogImage} />
         <meta name="description" content={post.fields.spoiler} />
+        <meta
+          property="og:url"
+          content={`https://www.richardjzhang.com/posts/${slug}`}
+        />
+        {/* Twitter og tags */}
+        <meta property="twitter:image" content={ogImage} />
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:title" content={post.fields.title} />
+        <meta property="twitter:description" content={post.fields.spoiler} />
       </Head>
       <Post
         post={{
