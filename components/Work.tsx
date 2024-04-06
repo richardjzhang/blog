@@ -9,7 +9,7 @@ export default function Work() {
         title="Vercel"
         date="2023 - Present"
         role="Sales Engineer"
-        jobDescription="Vercel's goal is to empower developers to build and publish high-performant apps and websites. As I am new to my role here, I will have more to share once I settle in."
+        jobDescription="Vercel's goal is to empower developers to build and publish high-performant apps and websites. My role is to help organisations across the Asia-Pacific region to scale on the web."
       />
       <WorkRow
         src="/rangeme-light-logo.png"
