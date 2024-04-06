@@ -15,8 +15,8 @@ export default async function generateRssFeed(posts: Array<IBlog>) {
     description: "A personal site for all my thoughts, by Richard Zhang",
     id: site_url,
     link: site_url,
-    image: `${site_url}/profile-pic.png`,
-    favicon: `${site_url}/profile-pic.png`,
+    image: `${site_url}/profile-pic.webp`,
+    favicon: `${site_url}/profile-pic.webp`,
     copyright: `© ${new Date().getFullYear()} Richard Zhang. All rights reserved.`,
     feedLinks: {
       rss2: `${site_url}/rss/feed.xml`,

@@ -35,7 +35,7 @@ export default async function handler(req: NextRequest) {
               <img
                 width="84"
                 height="84"
-                src={`${process.env.WEBSITE_URL}/profile-pic.png`}
+                src={`${process.env.WEBSITE_URL}/profile-pic.webp`}
                 tw="border-2 border-white rounded-full"
               />
             </div>

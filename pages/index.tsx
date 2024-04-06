@@ -38,7 +38,7 @@ export default function Home(props: Props) {
         <div>
           <div className="flex items-center">
             <Image
-              src="/profile-pic.png"
+              src="/profile-pic.webp"
               width={100}
               height={100}
               alt="Profile Pic"
