@@ -59,8 +59,8 @@ a {
 }
 
 .markdown h4 {
-  color: rgb(229 231 235);
-  font-size: 18px;
+  color: #818cf8;
+  font-size: 20px;
 }
 
 .markdown li::marker {
