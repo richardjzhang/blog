@@ -28,11 +28,11 @@ export default class ContentService {
     accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
   });
 
-  async getEntriesByType<T>(type: string): Promise<any>  {
+  async getEntriesByType<T>(type: string): Promise<any> {
     return (
       await this.client.getEntries<T>({
         content_type: type,
-        order: "-sys.createdAt",
+        order: "-fields.publishDate",
       })
     ).items;
   }
