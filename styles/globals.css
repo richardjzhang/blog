@@ -58,11 +58,16 @@ a {
   font-size: 24px;
 }
 
+.markdown h4 {
+  color: rgb(229 231 235);
+  font-size: 18px;
+}
+
 .markdown li::marker {
   color: rgb(254 240 138);
 }
 
-.markdown p, 
+.markdown p,
 .markdown li {
   color: rgb(229 231 235);
   font-size: 18px;
@@ -82,7 +87,10 @@ a {
   word-break: break-all;
 }
 
-.markdown p code::before, p code::after, h3 code::before, h3 code::after {
+.markdown p code::before,
+p code::after,
+h3 code::before,
+h3 code::after {
   display: none;
 }
 
@@ -99,11 +107,10 @@ a {
 
 .markdown blockquote p {
   color: rgb(165 180 252);
-
 }
 
 .markdown blockquote p::before {
-  content: ""
+  content: "";
 }
 
 .markdown p img {
@@ -129,6 +136,4 @@ a {
     font-style: normal;
     font-size: 22px;
   }
-
 }
-  
