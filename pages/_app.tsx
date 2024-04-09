@@ -1,6 +1,6 @@
 import "styles/globals.css";
 import type { AppProps } from "next/app";
-import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import Layout from "components/Layout";
 import { Josefin_Sans, Permanent_Marker } from "@next/font/google";
 
@@ -24,7 +24,7 @@ export default function App({ Component, pageProps }: AppProps) {
           <Component {...pageProps} />
         </Layout>
       </div>
-      <Analytics />
+      <SpeedInsights />
     </>
   );
 }
