@@ -24,10 +24,20 @@ export default function Markdown({ children }) {
               const metastring = image.properties.alt;
               const alt = metastring?.replace(/ *\{[^)]*\} */g, "");
               const src = `https:${image.properties.src}`;
+              const desc = alt.includes("Desc:") ? alt.split("Desc:")[1] : "";
+
               return (
-                <p className="h-60 relative sm:h-96">
-                  <Image className="object-contain" src={src} alt={alt} fill />
-                </p>
+                <div className="flex flex-col items-center w-full h-full">
+                  <p className="h-60 relative sm:h-96 flex w-full">
+                    <Image
+                      className="object-contain"
+                      src={src}
+                      alt={alt}
+                      fill
+                    />
+                  </p>
+                  <div className="text-sm text-gray-500">{desc}</div>
+                </div>
               );
             }
             return <p>{children}</p>;
