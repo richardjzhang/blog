@@ -33,10 +33,9 @@ export default async function handler(req: NextRequest) {
           <div tw="rounded p-10 bg-zinc-900 h-full w-full flex flex-col">
             <div tw="mt-10 mb-3 flex items-center">
               <img
-                width="84"
-                height="84"
-                src={`${process.env.WEBSITE_URL}/profile-pic.webp`}
-                tw="border-2 border-white rounded-full"
+                width="90"
+                height="90"
+                src={`${process.env.WEBSITE_URL}/terminal.svg`}
               />
             </div>
             <div tw="mt-16 flex text-6xl leading-normal text-gray-200">
