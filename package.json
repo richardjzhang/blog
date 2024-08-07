@@ -10,6 +10,7 @@
     "generate:types": "contentful-typescript-codegen --output types/contentful.d.ts"
   },
   "dependencies": {
+    "@next/env": "^14.2.5",
     "@next/font": "13.1.0",
     "@types/node": "18.11.17",
     "@types/react": "18.0.26",
